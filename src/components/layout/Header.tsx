@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, ChevronDown } from "lucide-react";
+import logoImage from "@/assets/diginexai-logo.jpeg";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -61,9 +62,11 @@ export function Header() {
       <nav className="container flex h-20 items-center justify-between">
         {/* Logo */}
         <a href="/" className="flex items-center gap-2">
-          <div className="relative flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-accent">
-            <span className="font-display text-lg font-bold text-primary-foreground">D</span>
-          </div>
+          <img 
+            src={logoImage} 
+            alt="DigiNexAI Logo" 
+            className="h-10 w-10 rounded-xl object-cover"
+          />
           <span className="font-display text-xl font-bold">
             <span className="text-foreground">DigiNex</span>
             <span className="gradient-text">AI</span>

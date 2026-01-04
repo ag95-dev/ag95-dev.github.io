@@ -1,12 +1,19 @@
 import { cn } from "@/lib/utils";
+import logoDiginexai from "@/assets/logo-diginexai.jpeg";
+import logoOnestudio from "@/assets/logo-onestudio.jpeg";
+import logoShield from "@/assets/logo-shield.jpeg";
+import logoAssist from "@/assets/logo-assist.jpeg";
+import logoFlow from "@/assets/logo-flow.jpeg";
+import logoEthera from "@/assets/logo-ethera.jpeg";
+import logoSynapse from "@/assets/logo-synapse.jpeg";
 
 const platforms = [
-  { name: "OneStudio", color: "bg-violet-500", angle: 0 },
-  { name: "Shield", color: "bg-emerald-500", angle: 60 },
-  { name: "Assist", color: "bg-blue-500", angle: 120 },
-  { name: "Flow", color: "bg-orange-500", angle: 180 },
-  { name: "Ethera", color: "bg-pink-500", angle: 240 },
-  { name: "Synapse", color: "bg-cyan-500", angle: 300 },
+  { name: "OneStudio", logo: logoOnestudio, angle: 0 },
+  { name: "Shield", logo: logoShield, angle: 60 },
+  { name: "Assist", logo: logoAssist, angle: 120 },
+  { name: "Flow", logo: logoFlow, angle: 180 },
+  { name: "Ethera", logo: logoEthera, angle: 240 },
+  { name: "Synapse", logo: logoSynapse, angle: 300 },
 ];
 
 export function EcosystemOrbit() {
@@ -19,7 +26,7 @@ export function EcosystemOrbit() {
 
       {/* Rotating container for planets */}
       <div className="absolute inset-0 animate-orbit" style={{ animationDuration: "40s" }}>
-        {platforms.map((platform, index) => {
+        {platforms.map((platform) => {
           const radius = 45; // percentage from center
           const angleRad = (platform.angle * Math.PI) / 180;
           const x = 50 + radius * Math.cos(angleRad);
@@ -41,17 +48,18 @@ export function EcosystemOrbit() {
               >
                 <div
                   className={cn(
-                    "flex h-12 w-12 items-center justify-center rounded-full transition-all duration-300",
-                    "hover:scale-125 hover:shadow-lg",
-                    platform.color
+                    "flex h-14 w-14 items-center justify-center rounded-full transition-all duration-300 overflow-hidden",
+                    "hover:scale-125 hover:shadow-lg border-2 border-primary/30"
                   )}
                   style={{
-                    boxShadow: `0 0 20px currentColor`,
+                    boxShadow: `0 0 20px hsl(var(--primary) / 0.4)`,
                   }}
                 >
-                  <span className="font-display text-xs font-bold text-white">
-                    {platform.name.charAt(0)}
-                  </span>
+                  <img 
+                    src={platform.logo} 
+                    alt={`DigiNex${platform.name}`}
+                    className="h-full w-full object-cover"
+                  />
                 </div>
                 
                 {/* Tooltip */}
@@ -66,19 +74,16 @@ export function EcosystemOrbit() {
         })}
       </div>
 
-      {/* Center hub */}
+      {/* Center hub with DigiNexAI logo */}
       <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
         <div className="relative">
           <div className="absolute inset-0 animate-pulse-glow rounded-full bg-gradient-to-br from-primary to-accent blur-xl" />
-          <div className="relative flex h-24 w-24 items-center justify-center rounded-full bg-gradient-to-br from-primary to-accent shadow-2xl">
-            <div className="text-center">
-              <span className="font-display text-lg font-bold text-primary-foreground">
-                DigiNex
-              </span>
-              <span className="block font-display text-xs font-medium text-primary-foreground/80">
-                AI
-              </span>
-            </div>
+          <div className="relative flex h-24 w-24 items-center justify-center rounded-full overflow-hidden shadow-2xl border-2 border-primary/30">
+            <img 
+              src={logoDiginexai} 
+              alt="DigiNexAI"
+              className="h-full w-full object-cover"
+            />
           </div>
         </div>
       </div>

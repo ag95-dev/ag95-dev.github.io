@@ -1,27 +1,22 @@
-import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Index from "./pages/Index";
-import NotFound from "./pages/NotFound";
+import React from 'react';
+import './App.css';
+import TransmissionConsole from './components/TransmissionConsole';
 
-const queryClient = new QueryClient();
+function App() {
+  return (
+    <div className="App">
+      <header className="app-header">
+        <h1 className="title">Exactly As Seen — Transmission Console</h1>
+        <p className="subtitle">Live simulated transmissions · immersive UI · realistic audio effects</p>
+      </header>
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
-);
+      <main>
+        <TransmissionConsole />
+      </main>
+
+      <footer className="app-footer">© Exactly As Seen</footer>
+    </div>
+  );
+}
 
 export default App;

@@ -60,22 +60,22 @@ export function Footer() {
             {/* Contact Info */}
             <div className="mt-6 space-y-3">
               <a
-                href="mailto:info@diginexai.com"
+                href="mailto:info@diginexai.dev"
                 className="flex items-center gap-3 text-sm text-muted-foreground transition-colors hover:text-foreground"
               >
                 <Mail className="h-4 w-4" />
-                info@diginexai.com
+                info@diginexai.dev
               </a>
               <a
-                href="tel:+1-800-DIGINEX"
+                href="tel:+971585838525"
                 className="flex items-center gap-3 text-sm text-muted-foreground transition-colors hover:text-foreground"
               >
                 <Phone className="h-4 w-4" />
-                +1-800-DIGINEX
+                +971 58 583 8525
               </a>
-              <div className="flex items-center gap-3 text-sm text-muted-foreground">
-                <MapPin className="h-4 w-4" />
-                50+ countries worldwide
+              <div className="flex items-start gap-3 text-sm text-muted-foreground">
+                <MapPin className="h-4 w-4 shrink-0 mt-0.5" />
+                <span>UAE, India & digital presence in 50+ countries</span>
               </div>
             </div>
 

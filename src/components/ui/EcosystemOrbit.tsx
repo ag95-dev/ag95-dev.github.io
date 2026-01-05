@@ -18,16 +18,17 @@ const platforms = [
 
 export function EcosystemOrbit() {
   return (
-    <div className="relative mx-auto aspect-square w-full max-w-[400px]">
+    <div className="relative mx-auto aspect-square w-full max-w-[600px]">
       {/* Outer orbit ring */}
-      <div className="absolute inset-0 rounded-full border border-border/50" />
-      <div className="absolute inset-4 rounded-full border border-border/30" />
-      <div className="absolute inset-8 rounded-full border border-border/20" />
+      <div className="absolute inset-0 rounded-full border-2 border-primary/40" />
+      <div className="absolute inset-6 rounded-full border border-primary/30" />
+      <div className="absolute inset-12 rounded-full border border-primary/20" />
+      <div className="absolute inset-[72px] rounded-full border border-primary/10" />
 
       {/* Rotating container for planets */}
       <div className="absolute inset-0 animate-orbit" style={{ animationDuration: "40s" }}>
         {platforms.map((platform) => {
-          const radius = 45; // percentage from center
+          const radius = 44; // percentage from center
           const angleRad = (platform.angle * Math.PI) / 180;
           const x = 50 + radius * Math.cos(angleRad);
           const y = 50 + radius * Math.sin(angleRad);
@@ -48,11 +49,11 @@ export function EcosystemOrbit() {
               >
                 <div
                   className={cn(
-                    "flex h-14 w-14 items-center justify-center rounded-full transition-all duration-300 overflow-hidden",
-                    "hover:scale-125 hover:shadow-lg border-2 border-primary/30"
+                    "flex h-20 w-20 sm:h-24 sm:w-24 items-center justify-center rounded-full transition-all duration-300 overflow-hidden",
+                    "hover:scale-125 hover:shadow-2xl border-3 border-primary/50 bg-background/80 backdrop-blur-sm"
                   )}
                   style={{
-                    boxShadow: `0 0 20px hsl(var(--primary) / 0.4)`,
+                    boxShadow: `0 0 30px hsl(var(--primary) / 0.5), 0 0 60px hsl(var(--primary) / 0.2)`,
                   }}
                 >
                   <img 
@@ -63,8 +64,8 @@ export function EcosystemOrbit() {
                 </div>
                 
                 {/* Tooltip */}
-                <div className="absolute left-1/2 top-full mt-2 -translate-x-1/2 opacity-0 transition-opacity group-hover:opacity-100">
-                  <div className="whitespace-nowrap rounded-lg bg-popover px-3 py-1.5 text-xs font-medium shadow-lg">
+                <div className="absolute left-1/2 top-full mt-3 -translate-x-1/2 opacity-0 transition-opacity group-hover:opacity-100">
+                  <div className="whitespace-nowrap rounded-lg bg-popover/95 backdrop-blur-sm px-4 py-2 text-sm font-semibold shadow-xl border border-primary/30">
                     DigiNex{platform.name}
                   </div>
                 </div>
@@ -77,8 +78,13 @@ export function EcosystemOrbit() {
       {/* Center hub with DigiNexAI logo */}
       <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
         <div className="relative">
-          <div className="absolute inset-0 animate-pulse-glow rounded-full bg-gradient-to-br from-primary to-accent blur-xl" />
-          <div className="relative flex h-24 w-24 items-center justify-center rounded-full overflow-hidden shadow-2xl border-2 border-primary/30">
+          <div className="absolute -inset-4 animate-pulse-glow rounded-full bg-gradient-to-br from-primary to-accent blur-2xl opacity-60" />
+          <div className="absolute -inset-2 animate-pulse rounded-full bg-gradient-to-br from-primary/50 to-accent/50 blur-xl" />
+          <div className="relative flex h-32 w-32 sm:h-40 sm:w-40 items-center justify-center rounded-full overflow-hidden shadow-2xl border-3 border-primary/50 bg-background/90 backdrop-blur-sm"
+            style={{
+              boxShadow: `0 0 40px hsl(var(--primary) / 0.6), 0 0 80px hsl(var(--primary) / 0.3)`,
+            }}
+          >
             <img 
               src={logoDiginexai} 
               alt="DigiNexAI"

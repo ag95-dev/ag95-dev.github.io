@@ -1,15 +1,17 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play } from "lucide-react";
 import { EcosystemOrbit } from "@/components/ui/EcosystemOrbit";
+import { FuturisticBackground } from "@/components/ui/FuturisticBackground";
 
 export function HeroSection() {
   return (
     <section className="relative min-h-screen overflow-hidden pt-20">
-      {/* Background Effects */}
-      <div className="absolute inset-0 gradient-hero" />
-      <div className="absolute inset-0 bg-grid-pattern bg-grid opacity-30" />
+      {/* 3D Futuristic Background */}
+      <FuturisticBackground />
+      
+      {/* Gradient overlay for readability */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background/90" />
       <div className="absolute left-1/2 top-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/10 blur-[120px]" />
-      <div className="absolute right-0 top-0 h-[400px] w-[400px] rounded-full bg-accent/5 blur-[100px]" />
 
       <div className="container relative z-10 flex min-h-[calc(100vh-5rem)] flex-col items-center justify-center py-20">
         <div className="mx-auto max-w-4xl text-center">
